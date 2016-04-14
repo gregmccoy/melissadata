@@ -46,7 +46,7 @@ class Personator(object):
     def parse_results(self, data):
         results = []
         if len(data["Records"]) < 1:
-            return -1
+            return 1
 
         codes = data["Records"][0]["Results"]
         for code in codes.split(","):
