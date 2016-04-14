@@ -8,10 +8,11 @@ class Personator(object):
         self.addr1 = None
         self.addr2 = None
         self.city = None
+        self.postal = None
+        self.province = None
+        self.country = None
         self.name = None
         self.phone = None
-        self.province = None
-        self.postal = None
         self.recordID = None
 
     def verify_address(self, addr1="", add2="", city="", fname="", lname="", phone="", province="", postal="", country="", email="", recordID="", freeform= ""):
@@ -59,5 +60,6 @@ class Personator(object):
         self.phone = data["Records"][0]["PhoneNumber"]
         self.province = data["Records"][0]["State"]
         self.postal = data["Records"][0]["PostalCode"]
+        self.country = data["Records"][0]["Country"]
         self.recordID = data["Records"][0]["RecordID"]
         return results
