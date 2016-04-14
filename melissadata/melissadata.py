@@ -15,7 +15,7 @@ class Personator(object):
         self.phone = None
         self.recordID = None
 
-    def verify_address(self, addr1="", add2="", city="", fname="", lname="", phone="", province="", postal="", country="", email="", recordID="", freeform= ""):
+    def verify_address(self, addr1="", addr2="", city="", fname="", lname="", phone="", province="", postal="", country="", email="", recordID="", freeform= ""):
         data = {
             "TransmissionReference": "",
             "CustomerID": self.custID,
