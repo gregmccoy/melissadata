@@ -2,8 +2,20 @@ import requests
 import json
 
 class Personator(object):
+    """Class for using MelissaData Personator
 
+    Contains methods and attributes to standardize an address
+    using Melissa Data
+
+    """
     def __init__(self, custID):
+        """__init__
+
+        Defines attributes for Personator Object.
+
+        Args:
+                custID (str): ID for Melissa Data account
+        """
         self.custID = custID
         self.addr1 = None
         self.addr2 = None
@@ -16,6 +28,27 @@ class Personator(object):
         self.recordID = None
 
     def verify_address(self, addr1="", addr2="", city="", fname="", lname="", phone="", province="", postal="", country="", email="", recordID="", freeform= ""):
+        """verify_address
+
+        Builds a JSON request to send to Melissa data. Takes in all needed address info.
+
+        Args:
+                addr1 (str):Contains info for Melissa data
+                addr2 (str):Contains info for Melissa data
+                city (str):Contains info for Melissa data
+                fname (str):Contains info for Melissa data
+                lname (str):Contains info for Melissa data
+                phone (str):Contains info for Melissa data
+                province (str):Contains info for Melissa data
+                postal (str):Contains info for Melissa data
+                country (str):Contains info for Melissa data
+                email (str):Contains info for Melissa data
+                recordID (str):Contains info for Melissa data
+                freeform (str):Contains info for Melissa data
+
+        Returns:
+            result, a string containing the result codes from MelissaData
+        """
         data = {
             "TransmissionReference": "",
             "CustomerID": self.custID,
@@ -46,6 +79,16 @@ class Personator(object):
         return result
 
     def parse_results(self, data):
+        """parse_results
+
+        Parses the MelissaData response.
+
+        Args:
+                data (dict): Contains MelissaData response
+
+        Returns:
+                results, either contains a dict with corrected address info or -1 for an invalid address.
+        """
         results = []
         if len(data["Records"]) < 1:
             return -1
