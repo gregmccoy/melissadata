@@ -27,7 +27,7 @@ class Personator(object):
                 "CompanyName": "",
                 "FullName": fname + " " + lname,
                 "AddressLine1": addr1,
-                "AddressLine2": "",
+                "AddressLine2": addr2,
                 "Suite": "",
                 "City": city,
                 "State": province,
