@@ -1,7 +1,0 @@
-setup.py
-MelissaData.egg-info/PKG-INFO
-MelissaData.egg-info/SOURCES.txt
-MelissaData.egg-info/dependency_links.txt
-MelissaData.egg-info/top_level.txt
-melissadata/__init__.py
-melissadata/melissadata.py
