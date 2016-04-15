@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name="MelissaData",
@@ -8,5 +8,5 @@ setup(
     author="Greg McCoy",
     author_email="gregmccoy@gfa.org",
     url="https://github.com/gregmccoy/melissadata",
-    py_modules = ['melissadata.melissadata'],
+    packages = find_packages(),
 )
