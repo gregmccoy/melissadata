@@ -8,13 +8,14 @@ class Personator(object):
         self.addr1 = None
         self.addr2 = None
         self.city = None
+        self.postal = None
+        self.province = None
+        self.country = None
         self.name = None
         self.phone = None
-        self.province = None
-        self.postal = None
         self.recordID = None
 
-    def verify_address(self, addr1="", add2="", city="", fname="", lname="", phone="", province="", postal="", country="", email="", recordID="", freeform= ""):
+    def verify_address(self, addr1="", addr2="", city="", fname="", lname="", phone="", province="", postal="", country="", email="", recordID="", freeform= ""):
         data = {
             "TransmissionReference": "",
             "CustomerID": self.custID,
@@ -46,7 +47,7 @@ class Personator(object):
     def parse_results(self, data):
         results = []
         if len(data["Records"]) < 1:
-            return 1
+            return -1
 
         codes = data["Records"][0]["Results"]
         for code in codes.split(","):
@@ -59,5 +60,6 @@ class Personator(object):
         self.phone = data["Records"][0]["PhoneNumber"]
         self.province = data["Records"][0]["State"]
         self.postal = data["Records"][0]["PostalCode"]
+        self.country = data["Records"][0]["Country"]
         self.recordID = data["Records"][0]["RecordID"]
         return results

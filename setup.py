@@ -8,5 +8,5 @@ setup(
     author="Greg McCoy",
     author_email="gregmccoy@gfa.org",
     url="https://github.com/gregmccoy/melissadata",
-    packages = ['melissadata'],
+    py_modules = ['melissadata.melissadata'],
 )
