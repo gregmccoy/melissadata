@@ -38,6 +38,7 @@ class Personator(object):
                 "FreeForm": freeform,
             }]
         }
+        self.country = country
         data = json.dumps(data)
         result = requests.post("https://personator.melissadata.net/v3/WEB/ContactVerify/doContactVerify", data=data)
         result = json.loads(result.text)
@@ -60,6 +61,5 @@ class Personator(object):
         self.phone = data["Records"][0]["PhoneNumber"]
         self.province = data["Records"][0]["State"]
         self.postal = data["Records"][0]["PostalCode"]
-        self.country = data["Records"][0]["Country"]
         self.recordID = data["Records"][0]["RecordID"]
         return results
